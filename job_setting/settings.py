@@ -58,22 +58,20 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # <-- add this
+     'whitenoise.middleware.WhiteNoiseMiddleware',  # <-- add this
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',  # <-- Add this line
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
 
 
 
 
 ]
-
+  
 
 ROOT_URLCONF = 'job_setting.urls'
 
@@ -195,21 +193,12 @@ DATABASES = {
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-ALLOWED_HOSTS = [
+ALLOWED_HOSTS = ["*",
     "job-rg01.onrender.com",  # your Render URL
     "localhost",
     "127.0.0.1"
 ]
 
-
-
-USE_X_FORWARDED_HOST = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-CSRF_TRUSTED_ORIGINS = ["https://job-rg01.onrender.com"]
-
-
-INSTALLED_APPS += ['storages']
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
