@@ -1,58 +1,64 @@
-   {% load static%}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hire & Register Portal</title>
   <script src="https://cdn.tailwindcss.com"></script>
-   {% load static%}
-    <link rel="stylesheet" href="{%static 'src/output.css'%}">
-    
+  <link rel="stylesheet" href="{% static 'src/output.css' %}">
 </head>
-<body class="bg-sky-200 from-purple-100 via-pink-100 to-blue-100 min-h-screen flex flex-col">
 
- 
-
-
-
+<body class="bg-sky-200 min-h-screen flex flex-col">
 
   <!-- NAVBAR -->
-  <header class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-10">
-    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
-      <div class="flex items-center gap-2">
-       <a href="/google_login/"> <span class="text-3xl">💼</span></a>
-           <a href="/google_login/" class="text-indigo-600 font-medium hover:underline">
-     <h1 class="text-2xl font-bold text-indigo-700" >HirePortal</h1></a>
-      </div>
-      <nav class="space-x-6">
-        <a href="/google_login/" class="text-indigo-600 font-medium hover:underline">Hire portal</a>
+  <header class="bg-white/90 backdrop-blur shadow sticky top-0 z-20">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+      <!-- Logo -->
+      <a href="/google_login/" class="flex items-center gap-2">
+        <span class="text-3xl">💼</span>
+        <h1 class="text-xl font-bold text-indigo-700">HirePortal</h1>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex gap-6">
+        <a href="/google_login/" class="text-indigo-600 font-medium hover:underline">Hire Portal</a>
         <a href="/login_page/" class="text-indigo-600 font-medium hover:underline">Login</a>
         <a href="/sign_page/" class="text-green-600 font-medium hover:underline">Register</a>
       </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="md:hidden text-2xl text-indigo-700">☰</button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+      <a href="/google_login/" class="block px-4 py-3 text-indigo-600 hover:bg-gray-100">Hire Portal</a>
+      <a href="/login_page/" class="block px-4 py-3 text-indigo-600 hover:bg-gray-100">Login</a>
+      <a href="/sign_page/" class="block px-4 py-3 text-green-600 hover:bg-gray-100">Register</a>
     </div>
   </header>
 
-  <!-- INTRO SECTION -->
-  <section id="intro" class="max-w-7xl mx-auto text-center py-20 px-4">
-    <h2 class="text-4xl md:text-5xl font-bold text-indigo-700 mb-4">Welcome to HirePortal 💼</h2>
+  <!-- INTRO -->
+  <section class="max-w-7xl mx-auto text-center py-20 px-4">
+    <h2 class="text-4xl md:text-5xl font-bold text-indigo-700 mb-4">
+      Welcome to HirePortal 💼
+    </h2>
     <p class="text-gray-700 text-lg md:text-xl mb-6">
-      Discover top talent, find exciting job opportunities, and grow your career with the skills you need for the future.
+      Discover top talent, find exciting jobs, and grow your career.
     </p>
-    <div class="flex flex-col md:flex-row justify-center gap-4">
-      <a href="/login_page/" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg shadow transition">
-        Login 🔑
-      </a>
-      <a href="/sign_page/" class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg shadow transition">
-        Register ✅
-      </a>
+
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="/login_page/" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg shadow">Login 🔑</a>
+      <a href="/sign_page/" class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg shadow">Register ✅</a>
     </div>
   </section>
 
-  <!-- JOBS SECTION -->
-  <section id="jobs" class="max-w-7xl mx-auto py-16 px-4">
+  <!-- JOBS -->
+  <section class="max-w-7xl mx-auto py-16 px-4">
     <h2 class="text-3xl font-bold text-indigo-700 mb-6 text-center">Available Jobs & Hiring Details</h2>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
@@ -71,14 +77,14 @@
         <p class="text-gray-600 mb-1">Location: Remote 🌐</p>
         <p class="text-gray-600 mb-1">Experience: 1+ Years</p>
         <p class="text-gray-600 mb-1">Salary: $50k - $70k 💰</p>
-        <p class="text-gray-600 mb-3">Skills: Figma, Adobe XD, Prototyping</p>
+        <p class="text-gray-600 mb-3">Skills: Figma, Adobe XD</p>
         <button class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 rounded-lg shadow">Apply Now 🚀</button>
       </div>
 
       <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
         <h3 class="text-xl font-semibold mb-2">Data Analyst 📊</h3>
         <p class="text-gray-600 mb-1">Company: Analytics Pro Ltd.</p>
-        <p class="text-gray-600 mb-1">Location: San Francisco, USA 🌉</p>
+        <p class="text-gray-600 mb-1">Location: San Francisco 🌉</p>
         <p class="text-gray-600 mb-1">Experience: 3+ Years</p>
         <p class="text-gray-600 mb-1">Salary: $80k - $100k 💰</p>
         <p class="text-gray-600 mb-3">Skills: SQL, Python, Tableau</p>
@@ -88,36 +94,29 @@
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="max-w-7xl mx-auto py-16 px-4">
+  <!-- SKILLS -->
+  <section class="max-w-7xl mx-auto py-16 px-4">
     <h2 class="text-3xl font-bold text-indigo-700 mb-6 text-center">Top Skills to Improve 💡</h2>
+
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <p class="text-4xl mb-2">💻</p>
-        <h3 class="font-semibold text-lg">Web Dev</h3>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <p class="text-4xl mb-2">🎨</p>
-        <h3 class="font-semibold text-lg">UI/UX Design</h3>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <p class="text-4xl mb-2">📊</p>
-        <h3 class="font-semibold text-lg">Data Analysis</h3>
-      </div>
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <p class="text-4xl mb-2">☁️</p>
-        <h3 class="font-semibold text-lg">Cloud & DevOps</h3>
-      </div>
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-lg font-semibold">💻 Web Dev</div>
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-lg font-semibold">🎨 UI/UX Design</div>
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-lg font-semibold">📊 Data Analysis</div>
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition text-lg font-semibold">☁️ Cloud & DevOps</div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-white/90 text-gray-700 p-6 text-center backdrop-blur">
+  <footer class="bg-white/90 text-gray-700 p-6 text-center">
     &copy; 2025 HirePortal. All rights reserved.
   </footer>
 
+  <!-- Mobile Menu Script -->
+  <script>
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
+
 </body>
 </html>
-  
-
-
