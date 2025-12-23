@@ -193,7 +193,9 @@ DATABASES = {
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['job-protal-mf32.onrender.com', 'localhost', '127.0.0.1']
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+ALLOWED_HOSTS = ["*"]
+
 
 
