@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Table with Tailwind</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 flex flex-col items-center justify-start min-h-screen">
+
+  <!-- Navigation -->
+  <nav class="bg-blue-600 text-white p-4 flex justify-between items-center w-full shadow">
+    <div class="text-2xl font-bold">JobHirePortal</div>
+    <div class="flex space-x-4">
+      <a href="/views_job/" class="bg-green-500 px-4 py-2 rounded hover:bg-green-400 transition inline-block text-center">
+        Views Job
+      </a>
+      <a href="{% url 'account_logout' %}" class="bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition inline-block text-center">
+        Logout
+      </a>
+    </div>
+  </nav>
+
+  <!-- Table -->
+  <table class="table-auto border border-gray-400 text-center mx-auto mt-8 bg-white shadow-lg">
+    <thead class="bg-gray-200">
+      <tr>
+        <th class="px-6 py-3 border border-gray-400">S.NO</th>
+        <th class="px-6 py-3 border border-gray-400">COMPANY NAME</th>
+        <th class="px-6 py-3 border border-gray-400">JOB NAME</th>
+        <th class="px-6 py-3 border border-gray-400">UPDATE</th>
+        <th class="px-6 py-3 border border-gray-400">DELETE</th>
+      </tr>
+    </thead>
+    {% for da in da %}
+    <tbody>
+      <tr class="bg-gray-100">
+        <td class="px-6 py-2 border border-gray-400">{{ forloop.counter }}</td>
+        <td class="px-6 py-2 border border-gray-400">{{ da.Company }}</td>
+        <td class="px-6 py-2 border border-gray-400">{{ da.job_name }}</td>
+        <td class="px-6 py-2 border border-gray-400">
+          <a href="{% url 'lf:job_update' da.id %}" class="bg-green-600 px-4 py-2 rounded hover:bg-green-400 transition inline-block">
+            Update
+          </a>
+        </td>
+        <td class="px-6 py-2 border border-gray-400">
+          <a href="{% url 'lf:job_delete' da.id %}" class="bg-red-600 px-4 py-2 rounded hover:bg-red-400 transition inline-block">
+            Delete
+          </a>
+        </td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+
+</body>
+</html>
