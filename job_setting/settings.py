@@ -195,7 +195,9 @@ DATABASES = {
 DEBUG = False
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-ALLOWED_HOSTS = ["*"]
-
-
+ALLOWED_HOSTS = [
+    "job-rg01.onrender.com",  # your Render URL
+    "localhost",
+    "127.0.0.1"
+]
 
