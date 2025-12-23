@@ -192,7 +192,7 @@ DATABASES = {
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 ALLOWED_HOSTS = ["*"]
